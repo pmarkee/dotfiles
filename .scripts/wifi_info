@@ -1,0 +1,19 @@
+#!/bin/bash
+
+while [ "1" ]; do
+    CONNECTION_INFO=$(nmcli connection show | sed -n 2p)
+    CONNECTION_NAME=N$(echo $CONNECTION_INFO | awk '{print $1}')
+    CONNECTION_INTERFACE=$(echo $CONNECTION_INFO | awk '{print $NF}')
+
+    if [ "$CONNECTION_INTERFACE" == "--" ]; then
+        CONNECTION_NAME=N"OFFLINE"
+        CONNECTION_QUALITY=Q"0"
+    else    
+        #CONNECTION_QUALITY=Q$(iwconfig $CONNECTION_INTERFACE | grep -i quality | sed s/'^\ *'//g | awk '{print $2}' | awk -F'=' '{print $2}')
+        CONNECTION_QUALITY=Q$(nmcli dev wifi | awk -F '[[:space:]][[:space:]]+' '/^*/ {print $7}')
+    fi
+
+    echo -e $CONNECTION_NAME"\n"$CONNECTION_QUALITY
+    sleep 5
+done
+

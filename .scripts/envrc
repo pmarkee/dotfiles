@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+### ENVIRONMENT VARIABLES ###
+
+# Add the scripts folder and Godot's dir to PATH.
+export PATH=$HOME/.scripts:$HOME/Godot:$PATH
+
+# Specify the sudo askpass program as a dmenu command
+export SUDO_ASKPASS=$HOME/.scripts/dmenupass
+
+# fzf defaults
+export FZF_DEFAULT_OPTS='-e --height 30 --layout=reverse'
+
+# panel defaults
+export PANEL_HEIGHT=20
+export PANEL_FONT="hack"
+

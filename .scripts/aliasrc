@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+alias vim="nvim"
+alias dotfile="/usr/bin/git --git-dir=$HOME/repos/dotfiles --work-tree=$HOME"
+
+function cd_shortcut() {
+    alias $1="cd $2 && ls"
+}
+
+### Custom aliases and shortcuts ###
+cd_shortcut "sc" "~/.scripts"
+cd_shortcut "doc" "~/Documents"
+cd_shortcut "dl" "~/Downloads"
+cd_shortcut "pic" "~/Pictures"
+cd_shortcut "uni" "~/Uni"
+
+unset -f cd_shortcut
+

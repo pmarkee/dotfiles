@@ -1,0 +1,4 @@
+#!/bin/sh
+
+vim $(dmenu < ~/.scripts/config_files_list)
+
