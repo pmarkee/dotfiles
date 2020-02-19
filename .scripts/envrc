@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 ### ENVIRONMENT VARIABLES ###
 
@@ -14,4 +14,10 @@ export FZF_DEFAULT_OPTS='-e --height 30 --layout=reverse'
 # panel defaults
 export PANEL_HEIGHT=20
 export PANEL_FONT="hack"
+
+# default applications
+export TERMINAL="urxvt"
+export BROWSER="firefox"
+export EDITOR="nvim"
+export MUSIC="spotify"
 

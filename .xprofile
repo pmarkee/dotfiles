@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+# This will be sourced when xinit runs.
+setxkbmap hu
+feh --bg-scale $HOME/Wallpaper
+dunst &
+compton &
+notify-send -t 3000 "Welcome"
+

@@ -1,39 +1,31 @@
-#
-# wm independent hotkeys
-#
-
 # MASSIVE TODO cleanup this whole file, what a fucking mess
 
+### OVERVIEW ###
+# MOD key is alt
+# shift is used as kind of a "modifier" key that somewhat alters the original function, like calling with different args or something
+# Anything marked with a "#WHAT" comment is something I don't understand
+#
+# General categories:
+# alt + {_, shift} + _ -> anything very often used (launchers, sound control, navigating windows etc)
+# alt + ctrl + {_,shift} + _ -> less often used but still possible
+# super + {_, ctrl} + _ -> system control (shutdown, reload, etc)
+
 ### PROGRAM SHORTCUTS ###
-# terminal emulator
+# TODO launch these with env variables, does not work now for some reason
 alt + Return
         urxvt
-# launcher
+
 alt + d
 	dmenu_run
 
 alt + b
         firefox
 
-alt + s
-        subl3
+alt + e
+        urxvt -e nvim
 
-### SHUTDOWN, LOGOUT, RELOAD ETC. CONTROL ###
-# Reload sxhkd and bspwm (note, colon (:) is NOP in bash)
-alt + {_, shift + }Escape
-	{:,bspc wm -r} && pkill -USR1 -x sxhkd
-
-alt + super + r
-        dmenu_prompt 'Shutdown?' 'sudo -A shutdown now'
-
-alt + super + t
-        dmenu_prompt 'Restart?' 'sudo -A reboot'
-
-alt + super + z
-        dmenu_prompt 'Logout?' 'logout'
-
-alt + super + u
-        dmenu_prompt 'Quit bspwm?' 'bspc quit'
+alt + m
+        spotify
 
 ### SOUND CONTROL ###
 # Increase volume
@@ -45,103 +37,54 @@ alt + {_, shift + }o
 # Toggle mute
 alt + u
         amixer sset 'Master' 1+ toggle
-#
-# bspwm hotkeys
-#
 
+### WINDOW CONTROL ###
 # close and kill
 alt + {_,shift + }q
 	bspc node -{c,k}
 
-# alternate between the tiled and monocle layout
-alt + shift + m
-	bspc desktop -l next
-
 # send the newest marked node to the newest preselected node
+#WHAT
 alt + shift + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 # swap the current node and the biggest node
+# Do I need this?
 alt + shift + g
 	bspc node -s biggest
 
-#
-# state/flags
-#
-
+## state/flags ##
 # set the window state
-alt + {t,p,f,g}
+alt + {t,p,g,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
-# TODO what the hell does this do?
+#WHAT
 alt + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
-#
-# focus/swap
-#
+## focus/swap ##
+# focus or send to the given desktop
+alt + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
 # focus or move the node in the given direction
 alt + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
-
-# same but with arrow keys (does not work)
-alt + {_,shift + }{left,down,up,right}
-	bspc node -{f,s} {west,south,north,east}
-
-# focus the node for the given path jump
-alt + shift + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
-
-# focus the next/previous node in the current desktop
-alt + {_,shift + }c
-	bspc node -f {next,prev}.local
-
-# focus the next/previous desktop in the current monitor
-super + Tab
-	bspc desktop -f {next,prev}.local
 
 # focus the last node/desktop
 alt + {_,shift} + Tab
 	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
-alt + {n,m}
+alt + {_,shift} + v
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
-alt + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
-
-#
-# preselect
-#
-# TODO is this section even relevant?
-# preselect the direction
-alt + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
-
-# preselect the ratio
-alt + ctrl + {1-9}
-	bspc node -o 0.{1-9}
-
-# cancel the preselection for the focused node
-alt + ctrl + space
-	bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-alt + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
-#
-# move/resize
-#
-# TODO is this section even relevant?
+## move/resize ##
 # expand a window by moving one of its side outward
-alt + super + shift + {h,j,k,l}
+alt + ctrl + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
@@ -151,3 +94,20 @@ alt + ctrl + shift + {h,j,k,l}
 # move a floating window
 alt + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+### SYSTEM CONTROL ###
+super + ctrl + b
+        bspc wm -r && pkill -USR1 -x sxhkd
+
+super + ctrl + s
+        pkill -USR1 -x sxhkd
+
+super + ctrl + r
+        dmenu_prompt 'Shutdown?' 'sudo -A shutdown now'
+
+super + ctrl + t
+        dmenu_prompt 'Restart?' 'sudo -A reboot'
+
+super + ctrl + u
+        dmenu_prompt 'Quit bspwm?' 'bspc quit'
+
