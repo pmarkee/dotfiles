@@ -8,15 +8,14 @@
 ;=====================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+background = ${xrdb:background}
+background-wm = #444
+background-alt = #2d2d2d
+foreground = ${xrdb:foreground}
 foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+primary = #3c71ea
+secondary = ${xrdb:color3}
+alert = #ed0b0b
 
 [bar/main]
 width = 100%
@@ -47,7 +46,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = alsa filesystem wlan date 
+modules-right = alsa wlan date 
 
 tray-position = right
 tray-padding = 2

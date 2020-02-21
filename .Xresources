@@ -6,6 +6,10 @@ Xft.hintstyle: hintslight
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
+! special
+*.foreground:   #d8dee9
+*.background:   #1d1f21
+
 ! stuff for urxvt
 URxvt.transparent: true
 URxvt.shading: 20

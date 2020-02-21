@@ -3,7 +3,7 @@
 ### ENVIRONMENT VARIABLES ###
 
 # Add the scripts folder and Godot's dir to PATH.
-export PATH=$HOME/.scripts:$HOME/Godot:$PATH
+export PATH=$HOME/.scripts:$HOME/Godot:$HOME/repos/LibreSprite/build/bin:$PATH
 
 # Specify the sudo askpass program as a dmenu command
 export SUDO_ASKPASS=$HOME/.scripts/dmenupass
