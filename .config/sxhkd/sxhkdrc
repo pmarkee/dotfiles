@@ -79,6 +79,9 @@ alt + {_,shift} + Tab
 alt + ctrl + {h,l}
         bspc desktop -f {prev,next}.local
 
+alt + ctrl + {j,k}
+        bspc node -f {prev,next}.local
+
 # focus the older or newer node in the focus history
 alt + {_,shift} + v
 	bspc wm -h off; \

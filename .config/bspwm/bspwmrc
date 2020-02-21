@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-setxbmap hu
 feh --bg-scale $HOME/Wallpaper
 dunst &
 compton &

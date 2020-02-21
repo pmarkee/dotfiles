@@ -45,4 +45,4 @@ let g:rainbow_active = 1
 " Keybinds
 
 map <C-n> :NERDTreeToggle<CR>
-
+map <C-d> :set syntax=dosini

@@ -40,13 +40,13 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 1
 
-font-0 = fixed:pixelsize=11;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-0 = Hack:pixelsize=11;1
+font-1 = Firacode:fontformat=truetype:size=8:antialias=false;0
+font-2 = unifont:pixelsize=10;1
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = alsa wlan date 
+modules-right = alsa wlan date
 
 tray-position = right
 tray-padding = 2
@@ -164,7 +164,8 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp0s20f0u7
+;TODO make this auto-detect the interface
+interface = wlp0s20f0u5
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -199,34 +200,6 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
 label = %date% %time%
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
-label-volume-foreground = ${root.foreground}
-
-label-muted = 🔇 muted
-label-muted-foreground = #666
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
 
 [module/temperature]
 type = internal/temperature
