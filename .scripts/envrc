@@ -2,6 +2,8 @@
 
 ### ENVIRONMENT VARIABLES ###
 
+export XDG_CONFIG_HOME=$HOME/.config
+
 # Add the scripts folder and Godot's dir to PATH.
 export PATH=$HOME/.scripts:$HOME/Godot:$HOME/repos/LibreSprite/build/bin:$PATH
 
@@ -16,8 +18,8 @@ export PANEL_HEIGHT=20
 export PANEL_FONT="hack"
 
 # default applications
-export TERMINAL="urxvt"
-export BROWSER="firefox"
+export TERM="alacritty"
+export BROWSER="brave"
 export EDITOR="nvim"
 export MUSIC="spotify"
 

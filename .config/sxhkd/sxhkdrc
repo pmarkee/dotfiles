@@ -13,16 +13,13 @@
 ### PROGRAM SHORTCUTS ###
 # TODO launch these with env variables, does not work now for some reason
 alt + Return
-        urxvt
+        alacritty
 
 alt + d
 	dmenu_run
 
 alt + b
-        firefox
-
-alt + e
-        urxvt -e nvim
+        brave
 
 alt + m
         spotify
