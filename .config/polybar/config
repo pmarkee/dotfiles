@@ -165,7 +165,7 @@ label = %percentage_used%%
 [module/wlan]
 type = internal/network
 ;TODO make this auto-detect the interface
-interface = wlp0s20f0u5
+interface = wlp0s20f0u6
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
