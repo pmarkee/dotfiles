@@ -19,7 +19,7 @@ alert = #ed0b0b
 
 [bar/main]
 width = 100%
-height = 27
+height = 30
 radius = 0.0
 offset-x = 0
 offset-y = 0

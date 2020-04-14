@@ -17,9 +17,3 @@ export FZF_DEFAULT_OPTS='-e --height 30 --layout=reverse'
 export PANEL_HEIGHT=20
 export PANEL_FONT="hack"
 
-# default applications
-export TERM="alacritty"
-export BROWSER="brave"
-export EDITOR="nvim"
-export MUSIC="spotify"
-
